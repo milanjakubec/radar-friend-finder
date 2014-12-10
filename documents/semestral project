@@ -1,0 +1,204 @@
+Slovenská Technická Univerzita
+Fakulta Elektrotechniky a Informatiky
+
+
+
+
+
+
+
+
+
+
+
+
+
+Vývoj softvérových aplikácií 1
+Semestrálne zadanie č. 1
+
+
+
+
+
+
+
+
+
+
+
+
+	Milan Jakubec
+7.11.2014	5947
+Obsah
+
+Obsah	Error! Bookmark not defined.
+Zadanie	3
+1.	Používateľská špecifikácia	4
+1.1.	Stručný úvod do problematiky	4
+1.2.	Používateľské požiadavky	5
+2.	Systémová špecifikácia	6
+2.1.	Diagramy prípadov použitia	6
+2.2.	Popis rolí jednotlivých hráčov	9
+2.3.	Tabuľky prípadov použitia	10
+2.4.	Diagramy aktivít a sekvenčné diagramy	12
+2.5.	Stavový diagram	16
+
+ 
+Zadanie
+
+Názov: Radar friend finder
+
+Znenie: Ide o mobilnú aplikáciu ktorá bude na hlavnej obrazovke vykreslovať „radar“ blízkeho okolia (1500m) na ktorom bude zobrazená približná poloha priateľov / kontaktov (teda kto sa nachádza na blízku). Aplikácia bude tiež spravovať zoznam priateľov / kontaktov: používateľ bude vedieť vyhľadávať priateľov podľa mena, emailu alebo tel čísla (a potom ich pridať), bude vedieť pozvať nových priateľov, bude vedieť importovať kontakty z facebook-u, google. Bude vedieť blokovať a mazať priateľov. Bude vedieť akceptovať alebo odmietnuť priateľstvo. Z hlavnej obrazovky alebo zo zoznamu priateľov bude možné spustiť chat a posielať si správy. Tiež bude možné si naplánovať si stretnutie / meeting s jedným alebo s viacerými priateľmi. Kde bude môcť zadať miesto a čas. Pozvaný sa potom môžu vyjadriť: akceptovať / odmietnuť, navrhnúť iný termín alebo miesto. Tiež je možné hneď v okne písať správy tak že ich vidia všetci zainteresovaný. Aplikácia tiež umožňuje neurčitý meeting, kde len zvolí že sa chce s jedným alebo viacerými priateľmi niekedy v budúcnosti stretnúť (na začiatku sa však neuvádza, miesto a čas). Po akceptovaní sa takýto priatelia na radare zobrazujú inou farbou a aplikácia sama upozorní používateľa, kedy je priateľ / priateľ s ktorým sa chce stretnúť na blízku. Neurčitý meeting je potom možné zmeniť na určitý (tiež je tam aj možnosť chat-u). Aplikácia bude mať tiež obrazovku meškanie, kde bude môcť používateľ pred a počas dohodnutého stretnutia vidieť ako ďaleko sú ostatný kamaráti (s ktorými sa má stretnúť), či sú v pohybe a odhadovaný čas príchodu (automaticky vykalkulovaný) na miesto stretnutia. Aplikácia tiež bude umožňovať geo-chat, alebo geo-fórum, teda akési diskusné fórum pre danú lokalitu v ktorej sa používateľ nachádza alebo v ktorej sa v minulosti nachádzal, kde bude môcť vytvárať nové témy (vlákna) a bude vedieť odpovedať na príspevky. Toto už nebude obmedzené priateľmi, ale témy budú môcť vidieť všetci v danej lokalite. Pri pridávaní príspevkov si bude môcť zvoliť geo-rádius relevantnosti, teda do akej vzdialenosti sa má správa používateľom zobrazovať (budova, ulica, kampus, mestská časť, celé mesto, krajina, ...). Komerčný používateľ si bude vedieť cez web rozhranie umiestniť na určité miesto virtuálnu reklamu (viditeľnú na radare) za ktorú bude musieť zaplatiť.
+ 
+1.	Používateľská špecifikácia
+
+
+1.1.	Stručný úvod do problematiky
+
+RFF je mobilná aplikácia, ktorá na hlavnej obrazovke vykresľuje „radar“ okolia do vzdialenosti 1500m. Na tejto ploche je zobrazená približná poloha kontaktov, ktoré má užívateľ vo svojom zozname. Aplikácia tento zoznam spravuje, t.z. používateľ vie vyhľadávať priateľov podľa mena, emailu alebo telefónneho čísla a následne ich pridať do zoznamu, vie pozvať nových priateľov, vie importovať kontakty zo stránok ako je facebook a google, vie blokovať a mazať kontakty zo zoznamu a vie akceptovať alebo odmietnuť žiadosť o pridanie kontaktu do zoznamu. Z hlavnej obrazovky alebo zo zoznamu kontaktov je možné spustiť chat a posielať si správy.
+Z hlavnej obrazovky je možné si naplánovať stretnutie s jedným alebo s viacerými kontaktmi. Pri vytvorení stretnutia sa užívateľ môže rozhodnúť, či chce udať miesto a čas stretnutia alebo ho nechať nevyplnené. Pokiaľ špecifiká nebudú udané, pozvaní sa môžu vyjadriť, či budú akceptovať alebo odmietnu návrh na stretnutie alebo môžu navrhnúť iný termín či miesto. V rámci stretnutia je možné vytvoriť skupinovú správu tak, aby ju videli všetci zainteresovaní. Po akceptovaní stretnutia sa takéto kontakty na radare zobrazujú inou farbou a aplikácia sama upozorní používateľa, kedy je kontakt s ktorým sa chce stretnúť na blízku. 
+Aplikácia poskytuje obrazovku ,,meškanie“, kde bude môcť užívateľ pred a počas dohodnutého stretnutia vidieť ako ďaleko sú ostatné kontakty (s ktorými sa má stretnúť), či sú v pohybe a odhadovaný čas príchodu (automaticky vykalkulovaný) na miesto stretnutia. 
+Aplikácia umožňuje geo-fórum, t.z. diskusné fórum pre danú lokalitu v ktorej sa užívateľ nachádza alebo v ktorej sa v minulosti nachádzal, kde bude môcť vytvárať nové témy a bude vedieť odpovedať na príspevky. Toto už nebude obmedzené priateľmi, ale témy budú môcť vidieť všetci v danej lokalite. Pri pridávaní príspevkov si bude môcť zvoliť geo-rádius relevantnosti, teda do akej vzdialenosti sa má správa používateľom zobrazovať (budova, ulica, kampus, mestská časť, celé mesto, krajina, ...). 
+Komerčný užívateľ si vie cez webové rozhranie umiestniť na určité miesto virtuálnu platenú reklamu, ktorá bude viditeľná na radare.
+ 
+1.2.	Používateľské požiadavky
+
+Funkcionálne:
+Zákazník
+•	Zobrazenie približnej polohy priateľov/kontaktov do 1500m
+•	Možnosť kontaktovať známych a dohodnúť si stretnutie
+•	Voľba miesta a času alebo bez určenia miesta a času pre stretnutie. 
+•	Správa kontaktov pridávanie, mazanie, prijímanie a odmietanie žiadosti
+•	Odlíšenie kontaktu od ostatných ak je dohodnuté stretnutie
+•	Notifikácia o meškaní na stretnutie
+•	Zobrazenie odhadovaného času príchodu
+•	Možnosť odosielania správ kontaktom
+•	Možnosť odosielania špeciálnych správ pre zúčastnených na stretnutí
+•	Fórum pre určitú lokalitu (napr. budova, mesto, krajina)
+•	Vytváranie tém a príspevkov pre fórum
+
+Systémový administrátor
+•	Webové rozhranie pre zavádzanie reklamy do aplikácie
+•	Štatistika zobrazení reklamy
+
+Nefunkcionálne:
+•	Univerzálnosť (android, iphone, windows)
+•	Rýchlu odozvu aplikácie
+•	Prehľadnosť, intuívne menu
+•	Inovatívny dizajn
+
+Doménové požiadavky
+•	Systém musí zabezpečiť ochranu osobných údajov užívateľov v
+zmysle zákona č. 428/2002 Z.z. O ochrane osobných údajov
+•	AIGA Standard interaktívnych diel
+•	Mobilné Zásady ochrany osobných údajov
+•	Mobilné Zásady ochrany osobných údajov (pre aplikácie, ktoré používajú lokácie)
+•	Mobilné Zásady ochrany osobných údajov (pre aplikácie, ktoré používajú reklamy)
+ 
+2.	Systémová špecifikácia
+2.1.	Diagramy prípadov použitia
+
+ 
+diagram 1
+ 
+diagram 2
+ 
+diagram 3
+ 
+2.2.	Popis rolí jednotlivých hráčov
+
+V tejto aplikácii vystupujú dve role a to je užívateľ a systémový administrátor. Avšak pri komunikácii pomocou aplikácie je potrebné aby túto aplikáciu mali nainštalovanú minimálne dvaja užívatelia z dôvodu toho že jeden užívateľ musí inicializovať komunikáciu a druhý ju musí spracovať.
+1.	Užívateľ aplikácie
+
+Po nainštalovaní aplikácie má užívateľ niekoľko možností na výber a to Správa kontaktov, Správa stretnutí, Vytváranie správ a Správu fóra. 
+V správe kontaktov má následne niekoľko možností Import kontaktov kde si môže vybrať, z ktorej sociálnej siete by chcel kontakty importovať z Google plus alebo Facebooku. Ďalšou možnosťou je správa žiadostí o priateľstvo táto možnosť je práve viazaná na interakciu s ostatnými užívateľmi aplikácie a ponúka možnosti ako sú vytvorenie žiadosti ale pri tomto musí použiť vyhľadávanie v kontaktoch alebo ho vytvoriť ručne, prijatie žiadosti od iného užívateľa alebo zamietnutie nežiadúcej žiadosti. Možnosť odoberania kontaktov musí obsahovať vyhľadávanie pretože užívateľ musí daný kontakt nájsť. Blokovanie kontaktov musí obsahovať vyhľadávanie pretože znova musím vedieť vyhľadať kontakt ktorý chcem blokovať. Ako posledná je v tejto časti sledovanie kontaktov na radare.
+V správe stretnutí má užívateľ znova niekoľko možností ktoré môže zvoliť a to sú vytvorenie stretnutia, upravenie už dohodnutého stretnutia, akceptovanie alebo odmietnutie stretnutia.
+V správe správ má možnosť vybrať si z niekoľkých možností a to sú vytvorenie, upravenie, vymazanie a možnosť odoslanie ale tá dáva možnosť si vybrať užívateľovi či správu odošle obyčajne jednému užívateľovi alebo špeciálne a to určitej doméne ako je napr. dom, mesto alebo krajina.
+V správe fóra má možnosť si vybrať z dvoch možností vytvorenie témy a vytvorenie príspevku.	
+
+2.	Systémový administrátor
+Má rovnaké možnosti ako užívateľ fóra z pohľadu správy fóra ako sú vytvorenie témy a vytvorenie príspevku, avšak ako administrátor má ďalšie možnosti ako sú vymazanie témy a vymazanie príspevku.
+Má možnosť pridávania reklamy do aplikácie pomocou web aplikácie. 
+ 
+2.3.	Tabuľky prípadov použitia
+
+
+Identifikátor	TPP1
+Názov	Správa kontaktov
+Vstupné podmienky	Používateľ musí byť prihlásený
+Hráč	Používateľ
+Postupnosť udalostí	-	Prihlásenie do aplikácie
+-	Otvorenie položky na správu kontaktov
+-	Zvolenie si možnosti importu kontaktov pomocou jednej zo sociálnych sietí (google, facebook)
+-	 Nahranie kontaktov do aplikácie
+Alternatívna postupnosť	-	Prihlásenie do aplikácie
+-	Otvorenie položky na správu kontaktov
+-	Vyhľadanie kontaktu
+-	Odoslanie žiadosti o zaradenie do kontaktov
+-	Vyhodnotenie žiadosti protistranou
+Alternatívna postupnosť	-	Prihlásenie do aplikácie
+-	Otvorenie položky na správu kontaktov
+-	Vyhodnotenie prípadnej žiadosti o zaradenie do kontaktov od protistrany
+
+
+
+Identifikátor	TPP2
+Názov	Správa správ
+Vstupné podmienky	Používateľ musí byť prihlásený
+Hráč	Používateľ
+Postupnosť udalostí	-	Prihlásenie do aplikácie
+-	Otvorenie položky na správu správ
+-	Otvorenie položky na vytvorenie správy
+-	Vyplnenie potrebných polí ako sú : výber kontaktu zo zoznamu kontaktov
+-	Odoslanie správy
+Alternatívna postupnosť	-	Prihlásenie do aplikácie
+-	Otvorenie položky na správu správ
+-	Otvorenie už existujúcej správy
+-	Úprava textu správy
+-	Uloženie správy 
+Alternatívna postupnosť	-	Prihlásenie do aplikácie
+-	Otvorenie položky na správu správ
+-	Vymazanie už existujúcej správy
+
+
+
+Identifikátor	TPP3
+Názov	Správa fóra z pohľadu administrátora
+Vstupné podmienky	Administrátor musí byť prihlásený
+Hráč	Administrátor
+Postupnosť udalostí	-	Prihlásenie do aplikácie
+-	Otvorenie položky na správu fóra
+-	Zobrazenie existujúcich tém
+-	Výber existujúceho príspevku
+-	Vymazanie existujúceho príspevku
+
+ 
+2.4.	Diagramy aktivít a sekvenčné diagramy
+
+
+
+ 
+diagram 4 – aktivity diagram – pridanie kontaktu do zoznamu kontaktov
+
+ 
+diagram 5 – aktivity diagram – odosielanie správy
+ 
+diagram 6 – sekvencny diagram – pridanie kontaktu do zoznamu kontaktov
+ 
+diagram 7 – sekvencny diagram – správa reklám
+ 
+2.5.	Stavový diagram
+
+ 
+
+diagram 8 – stavový diagram – odosielanie správy
+
+
+Stav		Popis
+Neprihlásený		Používateľ je odhlásený a systém čaká na jeho
+prihlásenie
+Prihlásený	Požívateľ je prihlásený
+Správa správ sprístupnená	Obsah položky správa správ bola sprístupnená užívateľovi
+Správa tvorba správy sprístupnená	Obsah položky tvorba novej správy bola sprístupnená užívateľovi a užívateľ môže začať písať novú správu
+Odoslaná správa	Správa, ktorú užívateľ poslal sa odoslala
+
